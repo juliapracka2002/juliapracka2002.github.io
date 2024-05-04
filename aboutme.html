@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <title>Slider ze zdjęciami</title>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="aboutme.html">ABOUT ME</a></li>
+                <li><a href="cv.html">CV</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+        <header>
+            <h1><span class="special-word">ABOUT ME</span></h1>
+        </header>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(to bottom, #D5BADB, rgb(252, 236, 253)); /* Gradient kolorów */
+        background-size: cover; /* Ustawienie tła na pełną szerokość i wysokość okna przeglądarki */
+        background-position: center; /* Wyśrodkowanie tła */
+        color: #000000; /* Kolor tekstu na tle gradientowym */
+        }
+        .container {
+            max-width: 2000px;
+            margin: 20px auto;
+            margin-left: 117px;
+           margin-right: 117px;
+            padding: 20px;
+            background-color: #f5f5f0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .special-word {
+    color: rgb(255, 255, 255); /* Ustaw kolor tekstu na biały */
+    -webkit-text-stroke: 1.5px #D5BADB; /* Ustaw grubość i kolor obramowania */
+}
+        /* Stylizacja slidera */
+        .slideshow-container {
+            max-width: 400px;
+            position: relative;
+            margin: auto;
+        }
+
+        /* Stylizacja zdjęć */
+        .mySlides {
+            display: none;
+            width: 100%;
+        }
+
+        /* Stylizacja przycisków do zmiany zdjęć */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* Stylizacja punktów */
+        .dot {
+            cursor: pointer;
+            height: 10px;
+            width: 10px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active {
+            background-color: #717171;
+        }
+        nav {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #D5BADB; /* Jasny kolor tła paska nawigacyjnego */
+        
+        
+    }
+    nav ul li {
+        display: inline-block;
+        margin-right: 20px;
+       
+    }
+    nav ul li:last-child {
+        margin-right: 0;
+    }
+    nav ul li a {
+        display: block;
+        color: #f8f8f8; /* Kolor tekstu linku */
+        text-align: center;
+        padding: 20px; /* Wielkość przycisku */
+        text-decoration: none;
+        font-weight: bold; /* Pogrubienie tekstu */
+        font-family: 'Arial', sans-serif; /* Czcionka */
+        transition: all 0.3s ease; /* Płynne przejście dla efektu hover */
+       
+        box-sizing: border-box; /* Obejście marginesu zewnętrznego */
+    }
+
+nav ul li a:hover {
+    color: #D5BADB; /* Zmień kolor na pomarańczowy podczas najechania */
+}
+li:last-child a {
+    border-right: none;
+}
+li a:hover {
+    background-color: #f3d7fc; /* Kolor tła po najechaniu */
+    color: #D5BADB; /* Kolor tekstu po najechaniu */
+    border-radius: 10px; /* Zaokrąglenie krawędzi */
+}
+header {
+    
+    padding: 20px;
+    text-align: center;
+}
+
+.about-me {
+    text-align: center;
+    margin: 20px;
+    margin-bottom: 60px;
+    margin-top: 50px;
+}
+
+.about-me img {
+    width: 100px; /* Dostosuj szerokość zdjęcia */
+    border-radius: 50%; /* Zaokrąglenie zdjęcia */
+    margin-top: 20px;
+}
+
+/* Stylowanie sekcji wpisu na blogu */
+.blog-post {
+    background-color: #f9f9f9;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+    overflow: hidden;
+}
+
+.blog-post h2 {
+    margin-bottom: 30px; /* Dodaje odstęp między tytułem a treścią wpisu */
+}
+.blog-posta {
+    background-color: #f9f9f9;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+    overflow: hidden;
+}
+
+.blog-posta h2 {
+    margin-bottom: 30px; /* Dodaje odstęp między tytułem a treścią wpisu */
+}
+
+
+/* Treść wpisu i zdjęcie */
+.post-content {
+    display: flex;
+    align-items: center;
+}
+
+
+
+.post-content img {
+    max-width: 30%; /* Zdjęcia zajmują maksymalnie połowę szerokości sekcji */
+    margin-left: 20px; /* Odległość między tekstem a zdjęciem */
+    flex-shrink: 0; /* Zdjęcie nie może się kurczyć */
+}
+img {
+    width: 450px; /* ustawia szerokość na 300 pikseli */
+    margin-top: 30px;
+}
+
+.images-container {
+    display: flex;
+    gap: 20px;
+    width: 200px;
+    height: 400; /* ustawia szerokość na 300 pikseli */
+   margin-left: 130px;
+}
+.images-container2 {
+    display: flex;
+    gap: 20px;
+    width: 200px;
+    height: 400; /* ustawia szerokość na 300 pikseli */
+   margin-left: 130px;
+}
+
+    </style>
+</head>
+<body>
+
+<div class="slideshow-container">
+    <!-- Zdjęcia -->
+    <div class="mySlides fade">
+        <img src="img/kwiat.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+        <img src="img/Zdjęcie WhatsApp 2024-03-28 o 17.23.28_410b0ae3.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+        <img src="img/Zdjęcie WhatsApp 2024-03-28 o 17.24.23_59c23f48.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+        <img src="img/komunia.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+        <img src="img/kaktus.jpg" style="width:100%">
+    </div>
+
+
+    <!-- Przyciski zmiany zdjęć -->
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+</div>
+<br>
+
+<!-- Punkty -->
+<div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+    }
+</script>
+
+
+<main>
+    <section class="about-me">
+        
+        <p><em>“Making money isn't hard in itself... What's hard is to earn it doing something worth devoting one’s life to.”</em></p>
+
+
+            <p>― Carlos Ruiz Zafón, "The Shadow of the Wind"</p>
+        
+    </section>
+
+    <!-- Kolejne sekcje z wpisami na blogu -->
+    
+    <section class="blog-post">
+        <h2> Work experience</h2>
+        <p> <strong>Marketing and Office Service: December 2023 - Currently</strong></p>
+         <p>Working in a small company, creating websites in
+            WordPress, social media posts and adds along with
+            advertising campaigns. </p>
+            <p>Developing the project of women's club, preparing presentations, social media marketing.</p>
+            <p>Responsibility for documentation.</p>
+            <br>
+            <p> <strong>English teacher in kindergartens and nurseries: September 2022 - December 2023</strong></p>
+            <p>Working with children in kindergartens and nurseries, using English. 
+                Huge commitment to the development of the youngest and responsibility.</p>
+            <p>Additionally, giving online English lessons to polish high school students 2 times per week until now.</p>
+                <br>
+            <p> <strong>Babysitting: June 2023 - August 2023</strong></p>
+            <p>Taking care of a 1, 5 and 7 years old kids.</p>
+                <br>
+            <p> <strong>Customer service, ice-cream shop: March 2022 - May 2022</strong></p>
+            <p>Working with clients, taking orders, preparing meals, cash register work.</p>
+            <br>
+            <p> <strong>Presidental Elections - June and July 2020</strong></p>
+            <p>Office job, working with people, counting votes.</p>
+    </section>
+
+    <section class="blog-post">
+        <h2>Education</h2>
+        <p><strong>Collegium Civitas - March 2022 - Currently</strong> </p>
+        <p>  Field of study: Sociology (5th Semester)</p>
+             <p>Specialization: Analytics and Web Design</p>
+             <p>Education level: Bachelor's degree</p>
+             <br>
+             <p><strong>XXVIII Jan Kochanowski High School in Warsaw </strong> </p>
+        <p>  Class specialization: Mathematics, Geography, Russian</p>
+        <br>
+        <p><strong>Certificates:</strong></p>
+        <p>Currently: User Experience Design Google Certificate, </p>
+          <p> Zwolnieni z Teorii - Project Management</p>
+        <a href="zwolnieni_z_teorii.pdf" download>Download PDF</a>
+    </section>
+
+    <section class="blog-posta">
+        
+        <h2>Skills and Strenghts</h2>
+        
+        <p><strong>Soft skills</strong></p>
+        
+        <p><i class="fas fa-star"></i> Self-motivated <i class="fas fa-star"></i> Innovative <i class="fas fa-star"></i> Strong desire to develop  <i class="fas fa-star"></i> Patient <i class="fas fa-star"></i> Open-minded   <i class="fas fa-star"></i> Teamwork
+            <br>
+            <br>
+            <p><strong>Hard skills</strong></p>
+                                <p><i class="fas fa-star"></i> Basics of Figma and Canva
+                                    <p><i class="fas fa-star"></i> Knowledge of Microsoft Office
+                                        <p><i class="fas fa-star"></i> Basics of WordPress, HTML, CSS
+                                            <p><i class="fas fa-star"></i> Ability to work with Social Listening tools, e.g. Brand24
+                                                <p><i class="fas fa-star"></i> Knowledge of quantitative and qualitative research techniques
+                                                    <p><i class="fas fa-star"></i> Basic knowledge of marketing advertising
+                                                        <p><i class="fas fa-star"></i> Designing online advertisements
+                                                            <p><i class="fas fa-star"></i> UX/UI Design Tools
+                                                                <p><i class="fas fa-star"></i> Basics of Moovly, DaVinci Resolve</p>
+        
+    </section>
+
+    <section class="blog-post">
+        <h2>Languages</h2>
+        <p><strong>Polish: </strong> Native</p>
+
+<p><strong>English: </strong> Level: C1+</p>
+
+<p><strong>Russian: </strong>Level: B1</p>
+
+<p><strong>Spanish and French: </strong>Level: A2</p>
+
+
+
+       
+             
+    </section>
+
+
+    <section class="blog-post">
+        <h2>Interests and Hobbies</h2>
+        <!-- Tutaj dodajemy treść wpisu -->
+        <p> I have a strong interest in UX/UI Design and Digital Marketing. I also enjoy working with HTML/CSS and expanding my skills in Web Design. 
+            <p>This portfolio is made in HTML/CSS as well, as I really enjoy checking new codes and creating new webs.</p>
+             <p>Outside of my digital pursuits, I have a passion for languages, literature, and cinema, spending a lot of my free time reading. </p>
+             <p>I enjoy travelling and discovering new places. Spanish culture has captured my heart, and I'm eager to continue exploring it.</p>
+             <p>In my spare time, I work with children, which I find incredibly rewarding. I enjoy babysitting and teaching them new things, especially English.</p>
+             <div class="images-container">
+                <img src="img/londonzdj.jpg" alt="Obrazek 1">
+                <img src="img/gabi1.png" alt="Obrazek 2">
+                  </div>
+                <div class="images-container2">
+                <img src="img/foot.jpg" alt="Obrazek 1">
+                <img src="img/sewilla.jpg" alt="Obrazek 2">
+            </div>
+      
+        
+             
+    </section>
+    <!-- Dodaj więcej sekcji z wpisami na blogu -->
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moje Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;background-image: linear-gradient(to bottom, #D5BADB, rgb(252, 236, 253)); /* Gradient kolorów */
+    background-size: cover; /* Ustawienie tła na pełną szerokość i wysokość okna przeglądarki */
+    background-position: center; /* Wyśrodkowanie tła */
+    color: #000000; /* Kolor tekstu na tle gradientowym */
+}
+.container {
+    max-width: 2000px;
+    margin: 20px auto;
+    margin-left: 117px;
+   margin-right: 117px;
+    padding: 20px;
+    background-color: #f5f5f0;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.section-background {
+    background-color: #fef8ff; 
+    max-width: 1200px;
+    margin: 20px auto;
+    margin-top: 50px;
+    padding: 20px;
+    max-height: fit-content;
+border: 2px solid #D5BADB;
+}
+nav {
+    text-align: center;
+    margin-bottom: 20px;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    background-color: #D5BADB; /* Jasny kolor tła paska nawigacyjnego */
+    
+    
+}
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+   
+}
+nav ul li:last-child {
+    margin-right: 0;
+}
+nav ul li a {
+    display: block;
+    color: #f8f8f8; /* Kolor tekstu linku */
+    text-align: center;
+    padding: 20px; /* Wielkość przycisku */
+    text-decoration: none;
+    font-weight: bold; /* Pogrubienie tekstu */
+    font-family: 'Arial', sans-serif; /* Czcionka */
+    transition: all 0.3s ease; /* Płynne przejście dla efektu hover */
+   
+    box-sizing: border-box; /* Obejście marginesu zewnętrznego */
+}
+
+nav ul li a:hover {
+color: #D5BADB; /* Zmień kolor na pomarańczowy podczas najechania */
+}
+
+li a:hover {
+background-color: #f3d7fc; /* Kolor tła po najechaniu */
+color: #D5BADB; /* Kolor tekstu po najechaniu */
+border-radius: 10px; /* Zaokrąglenie krawędzi */
+}
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 40px;
+
+}
+h2 {
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+h3{
+    text-align: center;
+    margin-bottom: 30px;
+}
+.project {
+    margin-bottom: 30px;
+}
+.project img {
+    width: 100%;
+    border-radius: 5px;
+}
+.project h2 {
+    margin-top: 10px;
+}
+.project p {
+    margin-bottom: 10px;
+}
+.profile {
+text-align: center;
+margin-bottom: 30px;
+}
+.profile img {
+width: 185px;
+height: 240px;
+float: right;
+border-radius: 15%;
+margin-bottom: 20px;
+margin-right: 130px;
+}  
+span{
+background: -webkit-linear-gradient(#D5BADB, #D5BADB);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.profile-info {
+float: left; /* Informacje o profilu po lewej */
+}
+@media (min-width: 768px) {
+    .container {
+        padding: 40px;
+    }
+    .project {
+        display: flex;
+        align-items: center;
+    }
+    .project img {
+        width: 50%;
+        margin-right: 20px;
+    }
+}
+</style>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="aboutme.html">ABOUT ME</a></li>
+                <li><a href="cv.html">CV</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+        <div class="section-background">
+        <div class="profile">
+            <img src="img/profile.jpg" alt="Profile Picture">
+            <h1><span>Julia Pracka</span></h1>
+            <h3><span>Web Design Student</span><h3>
+            <p>I am currently studying at Collegium Civitas in Warsaw,
+                <p>in the field of Sociology, Analytics and Web Design, along</p>
+                <p>with the subjects of Marketing and Advertising.</p>
+        </div>
+        </div>
+        <h2><i class="fas fa-star"></i>  MY PROJECTS  <i class="fas fa-star"></i></h2>
+        
+        <div class="project">
+            <img src="img/hero-section-projekt.png" alt="Project 1">
+            <div>
+                <h3>Hero-sections and websites</h3>
+                <p>I developed these hero-sections as part of my university projects. Some of them were made just for my personal development. </p>
+                <p><strong>Tools:</strong> Figma</p>
+                <a href="hero.html">See my projects</a>
+            </div>
+        </div>
+        
+        <div class="project">
+            <img src="img/milk shake.png" alt="Project 2">
+            <div>
+                <h3>Posters</h3>
+                <p>These posters were created for various purposes: for fun, for my friends and for my university. They reflect different aspects of my creativity and the diverse contexts in which they were designed</p>
+                <p><strong>Tools:</strong> Figma</p>
+                <a href="posters.html">See my projects</a>
+            </div>
+        </div>
+        <div class="project">
+            <img src="img/smposts.png" alt="Project 2">
+            <div>
+                <h3>Social Media Posts</h3>
+                <p>I designed these social media posts using Figma and Canva, showcasing a mix of professional projects for my workplace and some made for university-related content.</p>
+                <p><strong>Tools:</strong> Figma, Canva</p>
+                <a href="posts.html">See my projects</a>
+            </div>
+            </div>
+            <div class="project">
+                <img src="img/apki1.png" alt="Project 2">
+                <div>
+                    <h3>Apps / Design Systems</h3>
+                    <p>I made these app designs just for me, with features and looks that suit my style and what I need. In addition to app designs, I've also created web layouts, particularly focusing on hero-section designs. </p>
+                    <p><strong>Tools:</strong> Figma</p>
+                    <a href="apps.html">See my projects</a>
+                </div>
+        </div>
+        <!-- You can add more projects here -->
+
+    </div>
+</body>
+</html>
